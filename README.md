@@ -20,7 +20,7 @@ Use NodeJs or Yarn
 yarn install
 ```
 
-## :closed_book: Uso
+## :closed_book: Use
 
 - On development
   ```
@@ -32,5 +32,5 @@ If you want to contribute you can open an issue any time
 
 
 
-## :scroll: Licença
+## :scroll: License
 [MIT](https://choosealicense.com/licenses/mit/)
