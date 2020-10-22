@@ -5,19 +5,21 @@ import Landing from './pages/Landing';
 import OrphanagesMap from './pages/OrphanagesMap';
 import Orphanage from './pages/Orphanage';
 import CreateOrphanage from './pages/CreateOrphanage';
+import OrphanageRegistered from './pages/OrphanageRegistered';
 
-function Routes(){
-    return (
-        <BrowserRouter >
-            <Switch>
-                <Route path="/" exact component={Landing} />
-                <Route path="/app" component={OrphanagesMap} />
+function Routes() {
+  return (
+    <BrowserRouter >
+      <Switch>
+        <Route path="/" exact component={Landing} />
+        <Route path="/app" component={OrphanagesMap} />
 
-                <Route path="/orphanages/create"  component={CreateOrphanage} />
-                <Route path="/orphanages/:id" component={Orphanage} />
-            </Switch>
-        </BrowserRouter>
-    );    
+        <Route path="/orphanages/create" component={CreateOrphanage} />
+        <Route path="/orphanage-registered" component={OrphanageRegistered} />
+        <Route path="/orphanages/:id" component={Orphanage} />
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default Routes;

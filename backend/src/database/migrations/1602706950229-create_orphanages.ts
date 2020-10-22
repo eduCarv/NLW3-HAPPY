@@ -48,6 +48,15 @@ export class createOrphanages1602706950229 implements MigrationInterface {
             name: 'open_on_weekends',
             type: 'boolean',
             default: false
+          },
+          {
+            name: 'whatsapp',
+            type: 'varchar',            
+          },
+          {
+            name: 'verified',
+            type: 'boolean',
+            default: false
           }
         ],
       }))

@@ -5,6 +5,7 @@ import orphanageView from '../views/orphanages_view';
 import * as Yup from 'yup';
 
 export default {
+    //Busca e mostra todos os orfanatos
     async index(request: Request, response: Response) {
         const orphanagesRepository = getRepository(Orphanage);
 
@@ -13,13 +14,10 @@ export default {
             relations: ['images']
         });
 
-        // Com condicional de busca
-        // const orphanages = await orphanagesRepository.find({
-        // ctrl + espaço para ver as opções
-        // });
         return response.json(orphanageView.renderMany(orphanages));
     },
 
+    //Busca o orfanato solicitado
     async show(request: Request, response: Response) {
         const { id } = request.params;
 
@@ -32,7 +30,7 @@ export default {
         return response.json(orphanageView.render(orphanage));
     },
 
-    
+    // Cria um orfanato
     async create(request: Request, response: Response) {
         const {
             name,
@@ -42,6 +40,8 @@ export default {
             instructions,
             opening_hours,
             open_on_weekends,
+            whatsapp,
+            verified,
         } = request.body;        
     
         const orphanagesRepository = getRepository(Orphanage);
@@ -61,6 +61,8 @@ export default {
             instructions,
             opening_hours,
             open_on_weekends: open_on_weekends === 'true',
+            whatsapp,
+            verified,
             images            
         };
 
@@ -72,6 +74,7 @@ export default {
             instructions: Yup.string().required(),
             opening_hours: Yup.string().required(),
             open_on_weekends: Yup.boolean().required(),
+            whatsapp: Yup.string().required(),            
             images: Yup.array(
                 Yup.object().shape({
                     path: Yup.string().required()
